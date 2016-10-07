@@ -1,0 +1,24 @@
+/*body{
+
+}
+
+/*div{
+  background: url('../images/blackboard.jpg');
+  background-repeat: no-repeat;
+  background-size: ;*/
+/*}*/
+
+h1{
+  font-family: 'Architects Daughter';
+}
+
+li {
+  list-style: none;
+  border-style: solid;
+  width: 70px;
+  height: 50px;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
