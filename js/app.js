@@ -2,18 +2,50 @@ $(function(){
   console.log("loaded");
 
 
+
+
+//
+// var row1 = [cell[2], cell[3], cell[4], cell[5]];
+// var row3 = [cell[16], cell[17], cell[18], cell[19], cell[20], cell[21]];
+// var row7 = [cell[49], cell[50], cell[51], cell[52], cell[53], cell[54], cell[55]];
+// var col7 = [cell[14], cell[22], cell[30], cell[38], cell[46], cell[54], cell[62]];
+// var col8 = [cell[15], cell[23], cell[31], cell[39], cell[47], cell[55]];
+// var diag1 = [cell[32], cell[41], cell[50], cell[59], cell[68]];
+
+//click start game
+
+
+function startTimer(){
+  var counter = 60;
+  setInterval(function(){
+    counter--;
+    if (counter >= 0){
+      $("#countdown");
+      $("#countdowntimer").html(counter);
+    }
+    if (counter === 0){
+      clearInterval(counter);
+    }
+  }, 1000);
+}
+$(".startbutton").on("click", function(){
+    startTimer();
+    console.log(this);
+    clickTiles();
+ });
+
+
 var cell = $(".cell");
-var count = 61;
-var counter = setInterval(timer, 1000);
 
-var row1 = [cell[2], cell[3], cell[4], cell[5]];
-var row3 = [cell[16], cell[17], cell[18], cell[19], cell[20], cell[21]];
-var row7 = [cell[49], cell[50], cell[51], cell[52], cell[53], cell[54], cell[55]];
-var col7 = [cell[14], cell[22], cell[30], cell[38], cell[46], cell[54], cell[62]];
-var col8 = [cell[15], cell[23], cell[31], cell[39], cell[47], cell[55]];
-var diag1 = [cell[32], cell[41], cell[50], cell[59], cell[68]];
+function clickTiles(){
+  
 
-//click event function
+}
+
+
+
+
+
 $(".cell").on("click", function(){
   console.log(this, "clicked");  // click event on each tile works
    $(this).css('background', 'red');
@@ -23,23 +55,19 @@ $(".cell").on("click", function(){
 
 
 
-
-
-function timer(){
-   count -= 1;
-   if(count === 55){
-     clearInterval(counter);
-   }
-   $("#countdowntimer").html(count);
-}
-
-
-
-
-
-
-
 }); // do not touch this is the end of the line one function
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

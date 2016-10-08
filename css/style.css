@@ -15,7 +15,14 @@ body{
 .container{
   border: 1px solid;
   width: 1200px;
-  height: 1000px;
+  height: 700px;
+
+}
+
+.startbutton{
+  display: inline-block;
+  margin-left: 50%;
+  position: relative;
 
 }
 
@@ -47,6 +54,8 @@ body{
 
 }
 
+
+
 .wordlist{
   width: 200px;
   height: 200px;
@@ -62,4 +71,27 @@ li{
   list-style: none;
   text-align: center;
 
+}
+
+.reset{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.reset:hover {background-color: #3e8e41}
+
+.reset:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
