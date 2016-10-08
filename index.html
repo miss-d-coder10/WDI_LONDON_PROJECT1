@@ -10,27 +10,130 @@
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
-    <h1>Word Jumble</h1>
-    <div class="container">
+    <h1>Search and Find!</h1>
 
-      <ol>
-        <h2>Choose a topic</h2>
-        <li>Cities</li>
-        <li>London Tube Stations</li>
-        <li>Fruits</li>
-      </ol>
-    <div class="jumbleword"></div>
-    <input class="text1" type="text" name="name" value="">
-    <button type="button" name="button">submit</button>
+    <div class="game-rules">
+      <p>Mama Buttercup lost her babies! Help her find her babies before Squacky Squawk take all of her babies!</p>
 
     </div>
+    <div class="container">
+      <div class="wordlist">
+          <ul>
+            <p>Quick! Find their names!</p>
+            <li class="word" id="ans1">Lulu</li>
+            <li class="word" id="ans1">Pecker</li>
+            <li class="word" id="ans1">Quacker</li>
+            <li class="word" id="ans1">Wiggles</li>
+            <li class="word" id="ans1">Ducker</li>
+            <li class="word" id="ans1">Fluff</li>
+          </ul>
+      </div>
+
+      <div class="timer" id="countdown">Timer
+        <div id="countdowntimer"></div>
+      </div>
 
 
-    <!-- <form id="frm">
 
-    <input type="text" id="seconds" name="seconds" value="0" size="2" maxlength="2"/>
-    <br/>
-    <input type="button" id="btnct" value="Input"/> -->
+    <div class="board" id="game-board">
+      <table class="wordsearch" id="wordsearch1" cellpadding="0" cellspacing="0">
+        <!-- row1 -->
+        <tr>
+          <td><div class="cell" id="cell0">S</div></td>
+          <td><div class="cell" id="cell1">E</div></td>
+          <td><div class="cell" id="cell2">L</div></td>
+          <td><div class="cell" id="cell3">U</div></td>
+          <td><div class="cell" id="cell4">L</div></td>
+          <td><div class="cell" id="cell5">U</div></td>
+          <td><div class="cell" id="cell6">Y</div></td>
+          <td><div class="cell" id="cell7">A</div></td>
+        </tr>
+        <!-- row2 -->
+        <tr>
+          <td><div class="cell" id="cell8">F</div></td>
+          <td><div class="cell" id="cell9">L</div></td>
+          <td><div class="cell" id="cell10">U</div></td>
+          <td><div class="cell" id="cell11">G</div></td>
+          <td><div class="cell" id="cell12">I</div></td>
+          <td><div class="cell" id="cell13">S</div></td>
+          <td><div class="cell" id="cell14">W</div></td>
+          <td><div class="cell" id="cell15">D</div></td>
+        </tr>
+          <!-- row3-->
+          <tr>
+            <td><div class="cell" id="cell16">R</div></td>
+            <td><div class="cell" id="cell17">E</div></td>
+            <td><div class="cell" id="cell18">K</div></td>
+            <td><div class="cell" id="cell19">C</div></td>
+            <td><div class="cell" id="cell20">E</div></td>
+            <td><div class="cell" id="cell21">P</div></td>
+            <td><div class="cell" id="cell22">I</div></td>
+            <td><div class="cell" id="cell23">U</div></td>
+          </tr>
+          <tr>  <!-- row4-->
+            <td><div class="cell" id="cell24">A</div></td>
+            <td><div class="cell" id="cell25">P</div></td>
+            <td><div class="cell" id="cell26">W</div></td>
+            <td><div class="cell" id="cell27">I</div></td>
+            <td><div class="cell" id="cell28">K</div></td>
+            <td><div class="cell" id="cell29">G</div></td>
+            <td><div class="cell" id="cell30">G</div></td>
+            <td><div class="cell" id="cell31">C</div></td>
+          </tr>
+          <tr>  <!-- row5-->
+            <td><div class="cell" id="cell32">F</div></td>
+            <td><div class="cell" id="cell33">P</div></td>
+            <td><div class="cell" id="cell34">W</div></td>
+            <td><div class="cell" id="cell35">I</div></td>
+            <td><div class="cell" id="cell36">K</div></td>
+            <td><div class="cell" id="cell37">G</div></td>
+            <td><div class="cell" id="cell38">G</div></td>
+            <td><div class="cell" id="cell39">C</div></td>
+          </tr>
+          <tr>   <!-- row6-->
+            <td><div class="cell" id="cell40">L</div></td>
+            <td><div class="cell" id="cell41">L</div></td>
+            <td><div class="cell" id="cell42">U</div></td>
+            <td><div class="cell" id="cell43">O</div></td>
+            <td><div class="cell" id="cell44">T</div></td>
+            <td><div class="cell" id="cell45">Y</div></td>
+            <td><div class="cell" id="cell46">L</div></td>
+            <td><div class="cell" id="cell47">E</div></td>
+          </tr>
+          <tr>   <!-- row7-->
+            <td><div class="cell" id="cell48">S</div></td>
+            <td><div class="cell" id="cell49">Q</div></td>
+            <td><div class="cell" id="cell50">U</div></td>
+            <td><div class="cell" id="cell51">A</div></td>
+            <td><div class="cell" id="cell52">C</div></td>
+            <td><div class="cell" id="cell53">K</div></td>
+            <td><div class="cell" id="cell54">E</div></td>
+            <td><div class="cell" id="cell55">R</div></td>
+          </tr>
+          <tr>   <!-- row8-->
+            <td><div class="cell" id="cell56">O</div></td>
+            <td><div class="cell" id="cell57">R</div></td>
+            <td><div class="cell" id="cell58">C</div></td>
+            <td><div class="cell" id="cell59">F</div></td>
+            <td><div class="cell" id="cell60">P</div></td>
+            <td><div class="cell" id="cell61">E</div></td>
+            <td><div class="cell" id="cell62">S</div></td>
+            <td><div class="cell" id="cell63">H</div></td>
+          </tr>
+          <tr>   <!-- row9-->
+            <td><div class="cell" id="cell64">S</div></td>
+            <td><div class="cell" id="cell65">E</div></td>
+            <td><div class="cell" id="cell66">K</div></td>
+            <td><div class="cell" id="cell67">L</div></td>
+            <td><div class="cell" id="cell68">F</div></td>
+            <td><div class="cell" id="cell69">K</div></td>
+            <td><div class="cell" id="cell70">U</div></td>
+            <td><div class="cell" id="cell71">L</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 
   </body>
 </html>

@@ -8,17 +8,58 @@
   background-size: ;*/
 /*}*/
 
-h1{
+body{
   font-family: 'Architects Daughter';
 }
 
-li {
+.container{
+  border: 1px solid;
+  width: 1200px;
+  height: 1000px;
+
+}
+
+.timer{
+  display: inline-block;
+  position: absolute;
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 500px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.cell{
+    border-style: outset;
+    text-align: center;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+
+}
+
+.board{
+  border: 1px solid;
+  display: inline-block;
+  margin-top: 100px;
+  margin-right:150px;
+  float: right;
+
+}
+
+.wordlist{
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin-top: 200px;
+  margin-left: 100px;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+li{
   list-style: none;
-  border-style: solid;
-  width: 70px;
-  height: 50px;
-  display: block;
-  margin-bottom: 10px;
   text-align: center;
 
 }
