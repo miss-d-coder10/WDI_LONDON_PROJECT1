@@ -2,9 +2,6 @@ $(function(){
   console.log("loaded");
 
 
-
-
-//
 // var row1 = [cell[2], cell[3], cell[4], cell[5]];
 // var row3 = [cell[16], cell[17], cell[18], cell[19], cell[20], cell[21]];
 // var row7 = [cell[49], cell[50], cell[51], cell[52], cell[53], cell[54], cell[55]];
@@ -31,27 +28,90 @@ function startTimer(){
 $(".startbutton").on("click", function(){
     startTimer();
     console.log(this);
-    clickTiles();
+
  });
 
+var wordSearch = $("#list li").length,
+colors = ["red"],
+found = 0,
+clicking = false;
 
-var cell = $(".cell");
+$(".resetbutton").on("click", function(){
+  $(".cell").attr("class", "box");
+  $("#list li").removeClass("found");
+  $(".resetbutton").hide();
+  found = 0;
 
-function clickTiles(){
-  
+});
 
-}
+$("#wordsearch1").mousedown(function(){
+  clicking = true;
+
+});
+
+$("#wordsearch1").mouseup(function(){
+  clicking = false;
+  $(".cell").removeClass("highlight");
+
+});
+
+$(".cell").mouseover().mouseout(function(){
+  if(clicking){
+    $(this).toggleClass("highlight");
+    console.log($(this));
+    var word = $(this).attr("data-word"),
+    wordLength = word.length;
+
+    $cell = $(".cell[data-word]='" + word + "']" );
+    console.log($cell);
+    if ($(".cell[data-word]='" + word + "'].highlight").length == wordLength){
+    $cell.removeClass("highlight").addClass("found-" + colors[found]);
+    $("li:contains('" + word + "')").addClass("found");
+    $(".cell").removeClass("highlight");
+    found++;
+
+    }
+
+    console.log(found + " - " + wordSearch);
+    if (found === wordSearch){
+      console.log("You found my babies");
+      $(".resetbutton").show();
+    }
+
+
+
+
+  }
+
+});
 
 
 
 
 
-$(".cell").on("click", function(){
-  console.log(this, "clicked");  // click event on each tile works
-   $(this).css('background', 'red');
 
 
- });//click event function
+
+
+
+//
+// var cell = $(".cell");
+//
+// function clickTiles(){
+//
+//
+// }
+
+
+
+
+
+// $(".cell").on("click", function(){
+//   console.log(this, "clicked");  // click event on each tile works
+//    $(this).css('background', 'red');
+//
+//
+//  });//click event function
 
 
 
