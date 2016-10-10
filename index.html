@@ -6,6 +6,7 @@
     <title>Project 1</title>
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
@@ -14,30 +15,24 @@
 
     <div class="game-rules">
       <p>Mama Buttercup lost her babies! Help her find her babies before Squacky Squawk take all of her babies!</p>
-
     </div>
-    <div class="container">
 
-      <divc class="duck">
-        <!-- <img src="images/evilcrow.jpg" alt="crow" /> -->
-      </div>
+    <div class="container">
       <div class="wordlist">
+        <h2><strong>Quick! Find their names!</strong</h2>
           <ul id ="list">
-            <p><strong>Quick! Find their names!</strong</p>
-            <li class="word" id="ans1">Lulu</li>
-            <li class="word" id="ans1">Pecker</li>
-            <li class="word" id="ans1">Quacker</li>
-            <li class="word" id="ans1">Wiggles</li>
-            <li class="word" id="ans1">Ducker</li>
-            <li class="word" id="ans1">Fluff</li>
+            <li class="word" id="lulu">Lulu <div class="duck">dddddddd</div></li>
+            <li class="word" id="pecker">Pecker</li>
+            <li class="word" id="quacker">Quacker</li>
+            <li class="word" id="wiggles">Wiggles</li>
+            <li class="word" id="ducker">Ducker</li>
+            <li class="word" id="fluff">Fluff</li>
           </ul>
       </div>
 
       <div class="timer" id="countdown">Timer
         <div id="countdowntimer"></div>
       </div>
-
-
 
     <div class="board" id="game-board">
       <table class="wordsearch" id="wordsearch1" cellpadding="0" cellspacing="0">
@@ -60,7 +55,7 @@
           <td><div class="cell" id="cell11">G</div></td>
           <td><div class="cell" id="cell12">I</div></td>
           <td><div class="cell" id="cell13">S</div></td>
-          <td><div class="cell" id="cell14">W</div></td>
+          <td><div class="cell" id="cell14" data-word="Wiggles">W</div></td>
           <td><div class="cell" id="cell15" data-word="Wiggles" data-word="ducker">D</div></td>
         </tr>
           <!-- row3-->
@@ -139,14 +134,13 @@
 
     </div>
   </div>
-
-
+  <div class="bird"></div>
   </div>
   <div class="startbutton">Start Game
   <img src='http://images.clipartpanda.com/magnifying-glass-clipart-9iR5nBpie.jpeg' id='jpeg' alt='magnifyingglass' height="50" width="50"/>
   </div>
   <div class="resetbutton">
-    <button class="reset" id="restart "type="button" name="button">Restart</button>
+    <!-- <button class="reset" id="restart "type="button" name="button">Restart</button> -->
   </div>
   </body>
 </html>

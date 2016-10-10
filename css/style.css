@@ -23,26 +23,37 @@ h1{
 
 }
 
+#countdowntimer.animated{
+  color: red;
+}
+
+
+
 p{
   font-size: 30px;
   color: #00ffff;
 }
 
 .container{
-
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
   /*background-image: url("../images/duckbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;*/
+}
 
+.clock{
+  color: red;
 }
 
 .startbutton{
   display: inline-block;
-  margin-left: 42%;
-  margin-top: 45%;
+  margin-left: 42px;
+  margin-top: 500px;
   font-size: 30px;
+  cursor: pointer;
+  border: 1px solid;
 
 }
 
@@ -63,7 +74,13 @@ p{
     font-size: 30px;
     width: 50px;
     height: 50px;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
 
+.cell.active {
+  background-color: red;
+  color: white;
 }
 
 .board{
@@ -75,7 +92,7 @@ p{
 }
 
 .wordlist{
-  width: 200px;
+  width: 300px;
   height: 200px;
   display: inline-block;
   margin-top: 200px;
@@ -84,13 +101,15 @@ p{
   font-size: 30px;
   color: #ccffff;
   position: absolute;
-
 }
 
 li{
   list-style: none;
   text-align: center;
+}
 
+.duck{
+  display: hidden;
 }
 
 #wordsearch1{
