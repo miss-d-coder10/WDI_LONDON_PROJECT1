@@ -18,34 +18,35 @@ $(function(){
 
   //timer function
   function startTimer(){
-    var counter = 60;
-    setInterval(function(){
-      counter--;
+    var counter = 10;
+    var gameTimer = setInterval(myTimer, 1000);
+    function myTimer (){
+
       if (counter >= 0){
-        $("#countdown");
+        // $("#countdown");
         $("#countdowntimer").html(counter);
+        $('.reset').hide();
+
       }
-      if (counter === 0){
-        clearInterval(counter);
+      if (counter < 0){
+        console.log("Counter ran out!!!!!!!!!!!!!!!!!!!!!");
+        clearInterval(gameTimer);
+        $('.reset').show();
 
-      }else {
+      } else {
         if(counter <=55){
-          console.log("quick");
-            $("#countdowntimer").addClass('animated infinite pulse');
-            $("bird").html("<img id='eagle' src='images/eagle.jpg' alt='eagle' height='40px' width='40'/>");
+          // console.log("quick");
+            // $("#countdowntimer").addClass('animated infinite pulse'),
+            // $("bird").html("<img id='eagle' src='images/eagle.jpg' alt='eagle' height='40px' width='40'/>");
 
+          $("#countdowntimer").addClass('animated infinite pulse');
+          $(".bird").html("<img id='eagle' src='images/eagle.jpg' alt='eagle' height='40px' width='40px'/>");
         }
       }
-    }, 1000);
+      counter--;
+      console.log(counter);
+    }
   }
-
-
-
-
-
-
-
-
 
   $(".startbutton").on("click", function(){
     startTimer();
