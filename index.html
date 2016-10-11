@@ -11,14 +11,14 @@
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
-    <h1>Search and Find!</h1>
+    <h1>Finder's Keepers</h1>
+
     <!-- First page to click start game to go to the main game. -->
     <audio id="player" src="music/jungle-SoundBible.com-1211567897.wav" autoplay="true"></audio>
 
-
     <div id="startgameboard">
       <div id="cryingduck">
-        <img src="images/duckcrying.png" alt="cryingduck" height="300px" width="250px" />
+        <img src="images/duckcrying.png" alt="cryingduck" height="300px" width="250px" class="animated shake infinite"/>
       </div>
         <div class="game-rules">
         <p class="animated fadeIn">Mama Buttercup has lost her babies!</p>
@@ -26,13 +26,12 @@
         <p class="animated fadeIn"> You have 1 minute to find them before hungry Squacky Squawk comes back.</p>
         </div>
         <div class="startbutton">Start Game</div>
-        <button id="mainmusicbutton">music</button>
+        <!-- <button id="mainmusicbutton"></button> -->
     </div>
 
     <!-- main game section -->
 
   <div id="mainboard">
-
     <div class="container">
       <div class="wordlist">
         <div id="duck"><img id="duck1" src="images/mamaduck-1.png" alt="duckmainpage" height="200px" width="250px"  /></div>
@@ -47,11 +46,9 @@
           </ul>
       </div>
 
-
       <div id="containerright">
           <div class="timer" id="countdown">Timer
-            <div id="countdowntimer">1:00 minute</div>
-
+          <div id="countdowntimer">1:00 minute</div>
       <table class="wordsearch" id="wordsearch1" cellpadding="0" cellspacing="0">
         <!-- row1 -->
         <tr>
@@ -147,20 +144,18 @@
             <td><div class="cell" id="cell71">L</div></td>
           </tr>
         </table>
-        <div class="popupboard" id="reset">Play Again</div>
+          <div class="popupboard" id="reset">Play Again</div>
+        </div>
       </div>
-
     </div>
   </div>
-  </div>
-  </div>
-
-  </div>
-
+</div>
+</div>
+  <!-- layering divs  -->
   <div id="winningboard">
     <div class="winningtext">
-      <p>You found all</p>
-      <p>SOME TEXT HERE</p>
+      <p>Well done! You found all my babies!!</p>
+      <p>And they lived happily ever after</p>
       <img class="animated bounce infinite" id="happyduck" src="images/duck1.png" alt="happyduck" height="200px" width="250px"  />
       <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
       <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
@@ -170,12 +165,11 @@
     </div>
     <div class="popupboard" id="reset">Play Again</div>
   </div>
-
-
+  <!-- layering divs  -->
   <div id="gameoverboard">
     <div class="gameovertext">
       <p>GAME OVER</p>
-      <p>SOME TEXT HERE</p>
+      <p>Squacky squack is in for a treat!</p>
       <img class="animated tada infinite" id="evilcrow" src="images/evilcrow.png" alt="evilcrow" height="200px" width="250px"  />
       <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
       <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />

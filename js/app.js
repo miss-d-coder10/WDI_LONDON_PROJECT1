@@ -1,5 +1,4 @@
 //started with document load function using jquery
-
 $(function(){
   console.log("loaded");
 
@@ -14,13 +13,13 @@ $(function(){
   var diag1 = [cell[32], cell[41], cell[50], cell[59], cell[68]];
   var words = [lulu, row3, row7, col7, col8, diag1];
   var wordsToFind = ["lulu", "pecker", "quacker", "wiggles", "ducker", "fluff"];
-  var userMoves = [];
-  var gameTimer;
+  var userMoves = []; //empty array which will be used to push all the words found.
+  var gameTimer; //global  variable to timer when the game starts
 
   var backgroundMusic = document.getElementById("player");
 
   var playButton = document.getElementById("mainmusicbutton");
-    playButton.addEventListener("click", music);
+    // playButton.addEventListener("click", music);
 
     function music(){
       console.log(playButton);
@@ -43,6 +42,11 @@ $(function(){
       backgroundMusic.play();
     }
 
+    function duckSound(){
+      backgroundMusic.src = "music/Baby Chicks-SoundBible.com-2811441.wav";
+      backgroundMusic.play();
+    }
+
 //timer function starting from 60 second with 1 second interval
 function startTimer(){
     var counter = 60;
@@ -52,7 +56,6 @@ function startTimer(){
       //if the variable counter (60)is greater than 0, insert the counter to HTML page
       if (counter >= 0){
         $("#countdowntimer").html(counter);
-        // $('.reset').hide();
       }
       if (counter === 0){
         console.log("game over");
@@ -67,18 +70,17 @@ function startTimer(){
           // console.log("quick");
             // $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='100px' width='100px'/>");
             $("#countdowntimer").addClass('animated infinite pulse');
-            checkForMatchingWord();
         }
         if(counter === 55){
           console.log("play");
-          $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='100px' width='100px'/>");
+          $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='200px' width='200'/>");
+          eagleSound();
         }
       }
       counter--;
       console.log(counter);
     }
   }
-
 
   //Click start button function which activates the game and the timer function and calling out the display features.
   $(".startbutton").on("click", function(){
@@ -87,7 +89,6 @@ function startTimer(){
     clickTiles();
     mainboard.style.display="block";
     startgameboard.style.display="none";
-
   });
 
  //Click function
@@ -122,7 +123,7 @@ function startTimer(){
         if(winCounter === words[i].length){
           // $("#"+wordsToFind[i]).css('color', 'green');
           $("#"+wordsToFind[i]).html("<img class='animated bounce infinite'  id='babyduck' src='images/babyduck.png' alt='duck' height='40px' width='40'/>");
-
+          duckSound();
           // Removing found word from words array
           var index = words.indexOf(words[i]);
           if (index > -1) {
@@ -137,7 +138,6 @@ function startTimer(){
             $(".bird").hide();
             $('#gameoverboard').hide();
             winningSound();
-
           }
         }
       }
@@ -150,12 +150,9 @@ function stop(){
   // clearInterval(gameTimer);
 }
 
-
 $(".popupboard").on("click", reset);
-function reset (){
+  function reset (){
   location.reload();
-}
-
-
+  }
 
 }); // do not touch this is the end of the line one function

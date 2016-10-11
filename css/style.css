@@ -1,6 +1,5 @@
-
 body{
-  font-family: 'Architects Daughter';
+  font-family: 'Architects Daughter', monospace;
   background-image: url("../images/duckbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,11 +51,13 @@ p{
   padding: 5px 15px;
   line-height: 50px;
 }
+.startbutton:hover {background-color: #3e8e41}
 
 #cryingduck{
   display: inline-block;
   margin-left: 100px;
-  /*margin-top: 10px;*/
+  vertical-align: top;
+  margin-top: 100px;
 }
 
 #mainboard{
@@ -175,11 +176,6 @@ li{
   animation-name: pulse;
   animation-duration: 1s;
 }
-
-/*.fadeIn{
-  animation-duration: 10s;
-}*/
-
 
 .clock{
   color: red;
