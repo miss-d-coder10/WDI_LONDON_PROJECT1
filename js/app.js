@@ -1,6 +1,9 @@
+//started with document load function using jquery
+
 $(function(){
   console.log("loaded");
 
+//variables for the game
 
   var cell = $(".cell");
   var lulu = [cell[2], cell[3], cell[4], cell[5]];
@@ -12,35 +15,63 @@ $(function(){
   var words = [lulu, row3, row7, col7, col8, diag1];
   var wordsToFind = ["lulu", "pecker", "quacker", "wiggles", "ducker", "fluff"];
   var userMoves = [];
-  var wordFound = 0;
+  var gameTimer;
 
-  //click start game
+  var backgroundMusic = document.getElementById("player");
 
-  //timer function
-  function startTimer(){
-    var counter = 10;
-    var gameTimer = setInterval(myTimer, 1000);
+  var playButton = document.getElementById("mainmusicbutton");
+    playButton.addEventListener("click", music);
+
+    function music(){
+      console.log(playButton);
+      backgroundMusic.src = "music/jungle-SoundBible.com-1211567897.wav";
+      backgroundMusic.play();
+    }
+
+    function eagleSound(){
+      backgroundMusic.src = "music/Screaming Hawk-SoundBible.com-1210664501.wav";
+      backgroundMusic.play();
+    }
+
+    function loserSound(){
+      backgroundMusic.src = "music/Really Big Burp-SoundBible.com-1963610382.wav";
+      backgroundMusic.play();
+    }
+
+    function winningSound(){
+      backgroundMusic.src = "music/Quack Quack-SoundBible.com-620056916.wav";
+      backgroundMusic.play();
+    }
+
+//timer function starting from 60 second with 1 second interval
+function startTimer(){
+    var counter = 60;
+    gameTimer = setInterval(myTimer, 1000); //variable created set call an counter interval function
+    //GameTimer for the countdown
     function myTimer (){
-
+      //if the variable counter (60)is greater than 0, insert the counter to HTML page
       if (counter >= 0){
-        // $("#countdown");
         $("#countdowntimer").html(counter);
-        $('.reset').hide();
-
+        // $('.reset').hide();
       }
-      if (counter < 0){
-        console.log("Counter ran out!!!!!!!!!!!!!!!!!!!!!");
+      if (counter === 0){
+        console.log("game over");
         clearInterval(gameTimer);
-        $('.reset').show();
+        $('#gameoverboard').show();
+        $("#mainboard").hide();
+        $(".bird").hide();
+        loserSound();
 
       } else {
         if(counter <=55){
           // console.log("quick");
-            // $("#countdowntimer").addClass('animated infinite pulse'),
-            // $("bird").html("<img id='eagle' src='images/eagle.jpg' alt='eagle' height='40px' width='40'/>");
-
-          $("#countdowntimer").addClass('animated infinite pulse');
-          $(".bird").html("<img id='eagle' src='images/eagle.jpg' alt='eagle' height='40px' width='40px'/>");
+            // $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='100px' width='100px'/>");
+            $("#countdowntimer").addClass('animated infinite pulse');
+            checkForMatchingWord();
+        }
+        if(counter === 55){
+          console.log("play");
+          $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='100px' width='100px'/>");
         }
       }
       counter--;
@@ -48,20 +79,25 @@ $(function(){
     }
   }
 
+
+  //Click start button function which activates the game and the timer function and calling out the display features.
   $(".startbutton").on("click", function(){
     startTimer();
     // console.log(this);
     clickTiles();
+    mainboard.style.display="block";
+    startgameboard.style.display="none";
+
   });
 
-  // $(".cell").mousedown("highlight", clickTiles);
+ //Click function
+
   $(".cell").on("click", clickTiles);
 
   function clickTiles(){
     var $tile = $(this);
     // console.log(this, "clicked");  // click event on each tile works
-    // $(this).css('background', 'red');
-    $(this).addClass('active');
+    $(this).addClass('active'); // add class that changes colour when tiles are clicked
     if (!$(this).attr('data-word')) {
       setTimeout(function(){
         $tile.removeClass('active');
@@ -84,9 +120,8 @@ $(function(){
           winCounter++;
         }
         if(winCounter === words[i].length){
-          $("#"+wordsToFind[i]).css('color', 'green');
-
-          $("#"+wordsToFind[i]).html("<img id='babyduck' src='images/babyduck.jpg' alt='duck' height='40px' width='40'/>");
+          // $("#"+wordsToFind[i]).css('color', 'green');
+          $("#"+wordsToFind[i]).html("<img class='animated bounce infinite'  id='babyduck' src='images/babyduck.png' alt='duck' height='40px' width='40'/>");
 
           // Removing found word from words array
           var index = words.indexOf(words[i]);
@@ -95,7 +130,13 @@ $(function(){
               wordsToFind.splice(index, 1);
           }
           if (words.length === 0) {
-            alert("Found all the words");
+            // alert("Found all the words");
+            stop();
+            winningboard.style.display="block";
+            mainboard.style.display="none";
+            $(".bird").hide();
+            $('#gameoverboard').hide();
+            winningSound();
 
           }
         }
@@ -103,82 +144,17 @@ $(function(){
     }
   }
 
+function stop(){
+  console.log("timer stopped now!!!!!");
+  clearInterval(gameTimer);
+  // clearInterval(gameTimer);
+}
 
 
-
-
-
-
-
-
-
-
-
-  //
-  //
-  //
-  // var wordToSearch = $("#list li").length,
-  // colors = ["red", "yellow", "blue", "green", "purple"],
-  // found = 0,
-  // clicking = false;
-  //
-  // $(".resetbutton").on("click", function(){
-  //   $(".cell").attr("class", "cell");
-  //   $("#list li").removeClass("found");
-  //   $(".resetbutton").hide();
-  //   found = 0;
-  //
-  // });
-  //
-  // $("#wordsearch1").mousedown(function(){
-  //   clicking = true;
-  //
-  // });
-  //
-  // $("#wordsearch1").mouseup(function(){
-  //   clicking = false;
-  //   $(".cell").removeClass("highlight");
-  //
-  // });
-  //
-  // $(".cell").mouseover().mouseout(function(){
-  //   if(clicking){
-  //     $(this).toggleClass("highlight");
-  //     console.log($(this));
-  //     var word = $(this).attr("data-word"),
-  //     wordLength = word.length;
-  //
-  //     $cell = $(".cell[data-word='" + word + "']");
-  //     console.log(word);
-  //     if ($(".cell[data-word='" + word + "'].highlight").length === wordLength){
-  //     $cell.removeClass("highlight").addClass("found-" + colors[found]);
-  //     $("li:contains('" + word + "')").addClass("found");
-  //     $(".cell").removeClass("highlight");
-  //     found++;
-  //
-  //     }
-  //
-  //     console.log(found + " - " + wordSearch);
-  //     if (found === wordSearch){
-  //       console.log("You found my babies");
-  //       $(".resetbutton").show();
-  //     }
-  //
-  //   }
-  // });
-
-
-
-
-
-
-
-
-
-
-
-
-
+$(".popupboard").on("click", reset);
+function reset (){
+  location.reload();
+}
 
 
 

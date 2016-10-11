@@ -1,73 +1,188 @@
-/*body{
-
-}
-
-/*div{
-  background: url('../images/blackboard.jpg');
-  background-repeat: no-repeat;
-  background-size: ;*/
-/*}*/
 
 body{
   font-family: 'Architects Daughter';
   background-image: url("../images/duckbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
 }
 
 h1{
-  font-size: 40px;
+  font-size:60px;
   font-weight: bolder;
   color: #00ffff;
-
 }
 
+#startgameboard{
+  margin: auto;
+  height: 600px;
+  width: 99%;
+  z-index: 5;
+  display: block;
+  position: relative;
+}
+
+.game-rules{
+  /*background-color: rgba(63, 191, 95, 0.37);*/
+  width: 600px;
+  height:200px;
+  margin-left: 100px;
+  margin-top: 50px;
+  display: inline-block;
+  border-radius: 20px;
+  text-align: center;
+}
+
+p{
+  font-size: 40px;
+  color: #00ffff;
+  font-weight: 500;
+}
+
+.startbutton{
+  display: inline-block;
+  height: 51px;
+  font-size: 30px;
+  cursor: pointer;
+  border-style: double;
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 650px;
+  margin-top: 100px;
+  background-color: rgba(63, 191, 95, 0.70);
+  padding: 5px 15px;
+  line-height: 50px;
+}
+
+#cryingduck{
+  display: inline-block;
+  margin-left: 100px;
+  /*margin-top: 10px;*/
+}
+
+#mainboard{
+  display: none;
+  /*position: relative;*/
+}
+
+#containerright{
+  height: 1000px;
+  width: 1200px;
+  position: absolute;
+  z-index: 2;
+}
+
+#winningboard{
+  /*border: 1px solid yellow;*/
+  margin: auto;
+  height: 600px;
+  width: 99%;
+  z-index: -3;
+  text-align: center;
+  display: none;
+}
+
+
+#gameoverboard{
+  /*border: 1px solid red;*/
+  margin: auto;
+  height: 600px;
+  width: 99%;
+  z-index: -1;
+  text-align: center;
+  display: none;
+}
+
+#gameoverboard p{
+  color: red;
+  font-size: 50px;
+}
+
+#reset{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-top: 20px;
+}
+
+#reset:hover {background-color: #3e8e41}
+#reset:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.container{
+  /*border: 1px solid blue;*/
+  /*position: absolute;*/
+}
+
+.wordlist{
+  width: 300px;
+  height: 200px;
+  display: inline-block;
+  margin-top: 200px;
+  margin-left: 150px;
+  text-align: center;
+  font-size: 30px;
+  color: #ccffff;
+  position: absolute;
+}
+
+#wordsearch1{
+  cursor: pointer;
+}
+
+.cell{
+    border-style: outset;
+    text-align: center;
+    font-size: 35px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(152, 218, 240, 0.37);
+    transition: background-color 0.5s ease;
+}
+
+li{
+  list-style: none;
+  text-align: center;
+}
+
+/*animation on timer*/
 #countdowntimer.animated{
   color: red;
 }
 
 #countdowntimer.infinite {
   background-color: yellow;
+  width: 50px;
+  margin: 0 auto;
 }
 
 @keyframes pulse {
   0% {transform: scale(1);}
-  50% {transform: scale(1.1);}
-  100% {transform: scale(1);}
+  50% {transform: scale(2.9);}
+  100% {transform: scale(5);}
 }
 .pulse {
   animation-name: pulse;
   animation-duration: 1s;
 }
 
+/*.fadeIn{
+  animation-duration: 10s;
+}*/
 
-p{
-  font-size: 30px;
-  color: #00ffff;
-}
-
-.container{
-  width: 200px;
-  height: 300px;
-  border: 1px solid black;
-  /*background-image: url("../images/duckbackground.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;*/
-}
 
 .clock{
   color: red;
-}
-
-.startbutton{
-  display: inline-block;
-  margin-left: 42px;
-  margin-top: 500px;
-  font-size: 30px;
-  cursor: pointer;
-  border: 1px solid;
-
 }
 
 .timer{
@@ -81,76 +196,17 @@ p{
   color: white;
 }
 
-.cell{
-    border-style: outset;
-    text-align: center;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    transition: background-color 0.5s ease;
-}
-
 .cell.active {
   background-color: red;
   color: white;
-}
-
-.board{
-  border: 1px solid;
-  display: inline-block;
-  margin-top: 10%;
-  margin-left: 35%;
-  position: absolute;
-}
-
-.wordlist{
-  width: 300px;
-  height: 200px;
-  display: inline-block;
-  margin-top: 200px;
-  margin-left: 100px;
-  text-align: center;
-  font-size: 30px;
-  color: #ccffff;
-  position: absolute;
-}
-
-li{
-  list-style: none;
-  text-align: center;
 }
 
 .duck{
   display: hidden;
 }
 
-#wordsearch1{
-  cursor: pointer;
-}
-
-.reset{
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    position: absolute;
-    margin-left: 55%;
-
-}
-
-.reset:hover {background-color: #3e8e41}
-
-.reset:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.bird{
+float: right;
+margin-right: 70px;
+display:inline-block;
 }

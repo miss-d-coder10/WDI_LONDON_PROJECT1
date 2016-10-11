@@ -12,32 +12,46 @@
   </head>
   <body>
     <h1>Search and Find!</h1>
+    <!-- First page to click start game to go to the main game. -->
+    <audio id="player" src="music/jungle-SoundBible.com-1211567897.wav" autoplay="true"></audio>
 
-    <div class="game-rules">
-      <p>Mama Buttercup lost her babies! Help her find her babies before Squacky Squawk take all of her babies!</p>
+
+    <div id="startgameboard">
+      <div id="cryingduck">
+        <img src="images/duckcrying.png" alt="cryingduck" height="300px" width="250px" />
+      </div>
+        <div class="game-rules">
+        <p class="animated fadeIn">Mama Buttercup has lost her babies!</p>
+        <p class="animated fadeIn"> Help her find her babies before Squacky Squawk take all of her babies!</p><br>
+        <p class="animated fadeIn"> You have 1 minute to find them before hungry Squacky Squawk comes back.</p>
+        </div>
+        <div class="startbutton">Start Game</div>
+        <button id="mainmusicbutton">music</button>
     </div>
+
+    <!-- main game section -->
+
+  <div id="mainboard">
 
     <div class="container">
       <div class="wordlist">
-        <h2><strong>Quick! Find their names!</strong</h2>
+        <div id="duck"><img id="duck1" src="images/mamaduck-1.png" alt="duckmainpage" height="200px" width="250px"  /></div>
+        <h2 class=""><strong>Quick! Find their names!</strong</h2>
           <ul id ="list">
-            <li class="word" id="lulu">Lulu <div class="duck">dddddddd</div></li>
-            <li class="word" id="pecker">Pecker</li>
-            <li class="word" id="quacker">Quacker</li>
-            <li class="word" id="wiggles">Wiggles</li>
-            <li class="word" id="ducker">Ducker</li>
-            <li class="word" id="fluff">Fluff</li>
+            <li class="word" id="lulu">Lulu</li><div class="duck"></div>
+            <li class="word" id="pecker">Pecker</li><div class="duck1"></div>
+            <li class="word" id="quacker">Quacker</li><div class="duck2"></div>
+            <li class="word" id="wiggles">Wiggles</li><div class="duck3"></div>
+            <li class="word" id="ducker">Ducker</li><div class="duck4"></div>
+            <li class="word" id="fluff">Fluff</li><div class="duck5"></div>
           </ul>
       </div>
 
-      <div class="timer" id="countdown">Timer
-        <div id="countdowntimer"></div>
-      </div>
 
-    <div class="reset">
-      <button>Play Again</button>
-    </div>
-    <div class="board" id="game-board">
+      <div id="containerright">
+          <div class="timer" id="countdown">Timer
+            <div id="countdowntimer">1:00 minute</div>
+
       <table class="wordsearch" id="wordsearch1" cellpadding="0" cellspacing="0">
         <!-- row1 -->
         <tr>
@@ -90,7 +104,7 @@
             <td><div class="cell" id="cell36">K</div></td>
             <td><div class="cell" id="cell37">G</div></td>
             <td><div class="cell" id="cell38" data-word="Wiggles">G</div></td>
-            <td><div class="cell" id="cell39" data-word="ducker">C</div></td>
+            <td><div class="cell" id="cell39" data-word="ducker">K</div></td>
           </tr>
           <tr>   <!-- row6-->
             <td><div class="cell" id="cell40">L</div></td>
@@ -133,17 +147,57 @@
             <td><div class="cell" id="cell71">L</div></td>
           </tr>
         </table>
+        <div class="popupboard" id="reset">Play Again</div>
       </div>
 
     </div>
-  <!-- </div> -->
-  <div class="bird">DDDDDD</div>
   </div>
-  <div class="startbutton">Start Game
-  <img src='http://images.clipartpanda.com/magnifying-glass-clipart-9iR5nBpie.jpeg' id='jpeg' alt='magnifyingglass' height="50" width="50"/>
   </div>
-  <div class="resetbutton">
-    <!-- <button class="reset" id="restart "type="button" name="button">Restart</button> -->
   </div>
+
+  </div>
+
+  <div id="winningboard">
+    <div class="winningtext">
+      <p>You found all</p>
+      <p>SOME TEXT HERE</p>
+      <img class="animated bounce infinite" id="happyduck" src="images/duck1.png" alt="happyduck" height="200px" width="250px"  />
+      <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img  class="animated bounce infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+    </div>
+    <div class="popupboard" id="reset">Play Again</div>
+  </div>
+
+
+  <div id="gameoverboard">
+    <div class="gameovertext">
+      <p>GAME OVER</p>
+      <p>SOME TEXT HERE</p>
+      <img class="animated tada infinite" id="evilcrow" src="images/evilcrow.png" alt="evilcrow" height="200px" width="250px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+      <img class="animated shake infinite" src="images/babyduck.png" alt="babyduck" height="40px" width="40px"  />
+    </div>
+    <div class="popupboard" id="reset">Play Again</div>
+  </div>
+
+  <div class="bird"></div>
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
