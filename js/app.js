@@ -66,12 +66,12 @@ function startTimer(){
         loserSound();
 
       } else {
-        if(counter <=55){
+        if(counter <=10){
           // console.log("quick");
             // $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='100px' width='100px'/>");
             $("#countdowntimer").addClass('animated infinite pulse');
         }
-        if(counter === 55){
+        if(counter === 10){
           console.log("play");
           $(".bird").html("<img class='animated rollIn' id='eagle' src='images/eagle.png' alt='eagle' height='200px' width='200'/>");
           eagleSound();
