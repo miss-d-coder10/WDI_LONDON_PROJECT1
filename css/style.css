@@ -211,7 +211,7 @@ li{
 }
 
 .bird{
-float: right;
+/*float: right;*/
 margin-right: 70px;
 display:inline-block;
 }
