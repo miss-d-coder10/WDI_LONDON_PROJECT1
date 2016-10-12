@@ -72,7 +72,7 @@ p{
   width: 1200px;
   position: absolute;
   z-index: 2;
-  vertical-align: top;
+
 }
 
 #winningboard{
@@ -154,9 +154,14 @@ p{
     transition: background-color 0.5s ease;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 li{
   list-style: none;
   text-align: center;
+  font-size: 30px;
 }
 
 /*animation on timer*/
